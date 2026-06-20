@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">ZGold Danny</string>
+    <string name="title_calculator">Calculator</string>
+    <string name="title_about">About</string>
+    
+    <!-- Calculator inputs -->
+    <string name="hint_weight">Enter weight in grams (e.g. 100)</string>
+    <string name="hint_price">Enter current gold price per gram in RM (e.g. 280)</string>
+    <string name="label_weight">Gold Weight (grams)</string>
+    <string name="label_price">Current Gold Price per Gram (RM)</string>
+    <string name="label_category">Category / Usage</string>
+    <string name="radio_keep">Keep Gold (Threshold: 85g)</string>
+    <string name="radio_wear">Wear Gold (Threshold: 200g)</string>
+    
+    <!-- Calculator Actions -->
+    <string name="btn_calculate">Calculate Zakat</string>
+    <string name="btn_clear">Clear Fields</string>
+    
+    <!-- Calculation Outputs -->
+    <string name="label_results">Results</string>
+    <string name="label_total_value">Total Gold Value</string>
+    <string name="label_payable_weight">Zakat Payable Weight</string>
+    <string name="label_payable_value">Zakat Payable Value</string>
+    <string name="label_total_zakat">Total Zakat to Pay (2.5%)</string>
+    
+    <!-- Errors & Validation -->
+    <string name="error_empty_weight">Please enter the gold weight</string>
+    <string name="error_invalid_weight">Please enter a valid positive weight</string>
+    <string name="error_empty_price">Please enter the current gold price</string>
+    <string name="error_invalid_price">Please enter a valid positive gold price</string>
+    <string name="notice_not_payable">Note: The weight is below the threshold (%1$d grams), so no zakat is payable.</string>
+    
+    <!-- Info & Instructions -->
+    <string name="calc_instructions"><b>Instructions:</b> Enter the gold weight, current price per gram, and select the usage category to calculate your zakat payment.</string>
+    <string name="about_title">About ZGold Danny</string>
+    <string name="about_desc">ZGold Danny is a premium gold zakat estimation tool designed to help you calculate your gold zakat payments accurately and quickly based on standard Shariah rules in Malaysia.</string>
+    <string name="developer_info"><b>Developer:</b> Tengku Ahmad Danial Bin Tengku Noor Ashraf (2025197383)\n<b>Course:</b> ICT602 - Mobile Technology and Development</string>
+    <string name="copyright">© 2026 ZGold Danny. All Rights Reserved.</string>
+    <string name="github_url_text">Visit project GitHub Page</string>
+    <string name="github_url">https://github.com/KuDanial/zgold-danny-calculator</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- Primary Theme Colors -->
+    <color name="primaryColor">#C5A059</color> <!-- Champagne Gold -->
+    <color name="primaryDarkColor">#9A783A</color> <!-- Darker Gold -->
+    <color name="primaryLightColor">#F4EBD0</color> <!-- Light Cream Gold -->
+    
+    <!-- Secondary Theme Colors -->
+    <color name="secondaryColor">#1A2F4C</color> <!-- Deep Navy Blue -->
+    <color name="secondaryDarkColor">#0E1C30</color> <!-- Darker Navy Blue -->
+    <color name="secondaryLightColor">#2C476F</color> <!-- Lighter Navy Blue -->
+    
+    <!-- Accent & Status -->
+    <color name="colorAccent">#FFD700</color> <!-- Pure Gold -->
+    <color name="colorError">#D32F2F</color> <!-- Deep Red -->
+    <color name="colorSuccess">#388E3C</color> <!-- Green -->
+    
+    <!-- Neutrals -->
+    <color name="backgroundColor">#F7F9FC</color> <!-- Very Light Slate -->
+    <color name="cardBackgroundColor">#FFFFFF</color> <!-- White -->
+    <color name="dividerColor">#E2E8F0</color> <!-- Light gray -->
+    <color name="textPrimary">#1A2F4C</color> <!-- Navy for primary text -->
+    <color name="textSecondary">#627289</color> <!-- Gray-blue for subtext -->
+</resources>

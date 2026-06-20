@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- Top Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/secondaryColor"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:titleTextColor="@color/white"
+        app:title="@string/app_name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Main Content Container with ScrollView -->
+    <ScrollView
+        android:id="@+id/scroll_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <!-- CALCULATOR PAGE CONTAINER -->
+            <LinearLayout
+                android:id="@+id/layout_calculator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <!-- Instructions Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="@color/primaryLightColor"
+                    app:strokeWidth="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Gold Zakat Calculator"
+                            android:textColor="@color/primaryDarkColor"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:layout_marginBottom="8dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/calc_instructions"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="14sp"
+                            android:lineSpacingMultiplier="1.2" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Input Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="3dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/dividerColor"
+                    app:cardBackgroundColor="@color/cardBackgroundColor">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <!-- Category Selector -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/label_category"
+                            android:textColor="@color/textPrimary"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:layout_marginBottom="8dp" />
+
+                        <RadioGroup
+                            android:id="@+id/radio_group_category"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="16dp">
+
+                            <RadioButton
+                                android:id="@+id/radio_keep"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/radio_keep"
+                                android:textColor="@color/textPrimary"
+                                android:checked="true"
+                                android:textSize="13sp" />
+
+                            <RadioButton
+                                android:id="@+id/radio_wear"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/radio_wear"
+                                android:textColor="@color/textPrimary"
+                                android:textSize="13sp" />
+                        </RadioGroup>
+
+                        <!-- Gold Weight Input -->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/layout_input_weight"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:hint="@string/label_weight"
+                            app:boxStrokeColor="@color/primaryColor"
+                            app:hintTextColor="@color/primaryColor">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/input_weight"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="numberDecimal"
+                                android:textColor="@color/textPrimary" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- Gold Price Input -->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/layout_input_price"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="24dp"
+                            android:hint="@string/label_price"
+                            app:boxStrokeColor="@color/primaryColor"
+                            app:hintTextColor="@color/primaryColor">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/input_price"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="numberDecimal"
+                                android:textColor="@color/textPrimary" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- Action Buttons -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btn_clear"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginEnd="6dp"
+                                android:text="@string/btn_clear"
+                                android:textColor="@color/primaryDarkColor"
+                                app:strokeColor="@color/primaryColor" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btn_calculate"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:layout_marginStart="6dp"
+                                android:text="@string/btn_calculate"
+                                android:textColor="@color/white"
+                                android:backgroundTint="@color/primaryColor" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Results Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_results"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:visibility="gone"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/primaryLightColor"
+                    app:cardBackgroundColor="@color/cardBackgroundColor">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/label_results"
+                            android:textColor="@color/primaryDarkColor"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:layout_marginBottom="16dp" />
+
+                        <!-- Row 1: Total Gold Value -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="12dp">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.2"
+                                android:text="@string/label_total_value"
+                                android:textColor="@color/textSecondary"
+                                android:textSize="14sp" />
+                            <TextView
+                                android:id="@+id/txt_total_value"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="RM 0.00"
+                                android:textAlignment="viewEnd"
+                                android:textColor="@color/textPrimary"
+                                android:textStyle="bold"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <!-- Row 2: Zakat Payable Weight -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="12dp">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.2"
+                                android:text="@string/label_payable_weight"
+                                android:textColor="@color/textSecondary"
+                                android:textSize="14sp" />
+                            <TextView
+                                android:id="@+id/txt_payable_weight"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="0.00 g"
+                                android:textAlignment="viewEnd"
+                                android:textColor="@color/textPrimary"
+                                android:textStyle="bold"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <!-- Row 3: Zakat Payable Value -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="16dp">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.2"
+                                android:text="@string/label_payable_value"
+                                android:textColor="@color/textSecondary"
+                                android:textSize="14sp" />
+                            <TextView
+                                android:id="@+id/txt_payable_value"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="RM 0.00"
+                                android:textAlignment="viewEnd"
+                                android:textColor="@color/textPrimary"
+                                android:textStyle="bold"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/dividerColor"
+                            android:layout_marginBottom="16dp" />
+
+                        <!-- Row 4: Total Zakat -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="8dp">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/label_total_zakat"
+                                android:textColor="@color/primaryDarkColor"
+                                android:textStyle="bold"
+                                android:textSize="16sp" />
+                            <TextView
+                                android:id="@+id/txt_total_zakat"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.2"
+                                android:text="RM 0.00"
+                                android:textAlignment="viewEnd"
+                                android:textColor="@color/secondaryColor"
+                                android:textStyle="bold"
+                                android:textSize="22sp" />
+                        </LinearLayout>
+
+                        <!-- Soft helper notice for cases under threshold -->
+                        <TextView
+                            android:id="@+id/txt_threshold_notice"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/notice_not_payable"
+                            android:textColor="@color/colorError"
+                            android:textSize="13sp"
+                            android:textStyle="italic"
+                            android:layout_marginTop="12dp"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <!-- ABOUT PAGE CONTAINER -->
+            <LinearLayout
+                android:id="@+id/layout_about"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:visibility="gone">
+
+                <!-- Logo Section -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="20dp"
+                    app:cardCornerRadius="70dp"
+                    app:cardElevation="4dp"
+                    app:strokeWidth="2dp"
+                    app:strokeColor="@color/primaryColor">
+
+                    <ImageView
+                        android:id="@+id/img_logo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/zgolddanny_logo"
+                        android:contentDescription="ZGold Danny Logo" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- App Name & Description -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/about_title"
+                    android:textColor="@color/secondaryColor"
+                    android:textStyle="bold"
+                    android:textSize="22sp"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="v1.0"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="24dp" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/dividerColor"
+                    app:cardBackgroundColor="@color/cardBackgroundColor">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/about_desc"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="14sp"
+                            android:lineSpacingMultiplier="1.3"
+                            android:layout_marginBottom="16dp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/dividerColor"
+                            android:layout_marginBottom="16dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/developer_info"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="14sp"
+                            android:lineSpacingMultiplier="1.4"
+                            android:layout_marginBottom="16dp" />
+
+                        <TextView
+                            android:id="@+id/btn_github_link"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/github_url_text"
+                            android:textColor="@color/primaryDarkColor"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Copyright -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/copyright"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="12sp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="32dp" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation Bar -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="8dp"
+        android:background="@color/cardBackgroundColor"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="@color/primaryColor"
+        app:itemTextColor="@color/textPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
