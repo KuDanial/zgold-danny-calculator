@@ -1,6 +1,8 @@
 # 🏆 ZGold Danny - Gold Zakat Calculator
 
-![ZGold Danny Logo](./ZGoldDanny_logo.png)
+<p align="center">
+<img src="./ZGoldDanny_logo.png" alt="Logo" width="500">
+</p>
 
 A premium, responsive, and user-friendly native Android application designed to estimate gold zakat payments accurately based on standard Islamic Shariah rules in Malaysia. Built with a modern Champagne Gold and Navy design system, it provides instant calculations, helpful threshold notices, and full error-handling.
 
