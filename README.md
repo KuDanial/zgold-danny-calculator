@@ -74,21 +74,3 @@ To build and run the application on your computer:
 5. Connect an Android device (via USB Debugging) or start a Virtual Device (Emulator).
 6. Click the **Run** (green triangle) button to compile and launch.
 
----
-
-## 🚀 Pushing to GitHub
-
-If you get a `Repository not found` error when trying to push, you must first create the repository on the GitHub website:
-
-1. Log into your GitHub account: [github.com](https://github.com/)
-2. Create a new repository named exactly: `zgold-danny-calculator`
-3. Leave it **empty** (do **not** check "Add a README", "Add .gitignore", or license templates).
-4. Run the following commands in your local directory terminal:
-   ```bash
-   # Add the remote target (if not already added)
-   git remote add origin https://github.com/KuDanial/zgold-danny-calculator.git
-   
-   # Rename default branch to main and push
-   git branch -M main
-   git push -u origin main
-   ```
